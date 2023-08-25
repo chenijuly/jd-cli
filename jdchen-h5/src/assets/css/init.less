@@ -1,0 +1,45 @@
+.remMixin() {
+  @functions: ~`(function() {
+  var vm_design = 375;
+  function convert(size) {
+    return typeof size === 'string' ?
+      +size.replace('px', '') : size;
+  }
+  this.htmlRem = function (size) {
+    return convert(size) / convert(vm_design) * 100 + 'vw';
+  }
+})()`;
+}
+
+.remMixin();
+
+html {
+  font-size: ~`htmlRem(1)`;
+  width:  ~`htmlRem(375)`;
+  //height: 20vw;
+  // 同时，通过Media Queries 限制根元素最大最小值
+  //@media screen and (max-width: 770px) {
+  //  min-width: 770px;
+  //  font-size: 0.40104167px;
+  //}
+}
+// body 也增加最大最小宽度限制，避免默认100%宽度的 block 元素跟随 body 而过大过小
+body {
+  //min-width: 770px;
+  //overflow-x: hidden;
+  //::selection {
+  //  color: @text-color !important;
+  //  background: transparent;
+  //}
+  //font-size: 12rem;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}

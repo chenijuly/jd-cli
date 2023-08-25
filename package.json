@@ -1,0 +1,24 @@
+{
+  "name": "npm-init",
+  "version": "1.0.0",
+  "description": "脚手架",
+  "main": "index.js",
+  "bin": {
+    "jdchen-cli": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jdchen",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^11.0.0",
+    "download-git-repo": "^3.0.2",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1"
+  },
+  "files": [
+    "bin"
+  ]
+}
